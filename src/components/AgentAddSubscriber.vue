@@ -20,10 +20,10 @@
                                                     </div> -->
                                             <div class="two fields">
                                                 <div class="ui large field">
-                                                    <input type="text" name="firstname" placeholder="First Name*">
+                                                    <input type="text" v-model="first_name" name="firstname" placeholder="First Name*">
                                                 </div>
                                                 <div class="field">
-                                                    <input type="text" name="lastname" placeholder="Last Name*">
+                                                    <input type="text" v-model="last_name" name="lastname" placeholder="Last Name*">
                                                 </div>
                                             </div>
                                         </div>
@@ -31,11 +31,13 @@
                                         <div class="field">
                                             <div class="two fields">
                                                 <div class="ui large field">
-                                                    <input type="date" name="dob" placeholder="Date of Birth*">
+                                                    <input type="date" v-model="dob" name="dob" placeholder="Date of Birth*">
                                                 </div>
                                                 <div class="field">
-                                                    <select class="ui fluid dropdown" placeholder="Gender">
-                                                        <option disabled selected value="">Gender</option>                        
+                                                    <select class="ui fluid dropdown" v-model="gender" placeholder="Gender">
+                                                        <option  selected value="">Gender</option>                        
+                                                        <option   value="Male">Male</option>                        
+                                                        <option   value="Female">Female</option>                        
                                                             </select>
                                                 </div>
                                             </div>
@@ -46,11 +48,11 @@
                                         <div class="field">
                                             <div class="two fields">
                                                 <div class="ui large field">
-                                                    <input type="text" name="telephone" placeholder="Telephone*">
+                                                    <input type="text" v-model="telephone"  name="telephone" placeholder="Telephone*">
                                                 </div>
                         
                                                 <div class="field">
-                                                    <input type="text" name="email" placeholder="Email*">
+                                                    <input type="text" v-model="email" name="email" placeholder="Email*">
                                                 </div>
                                             </div>
                                         </div>
@@ -58,18 +60,21 @@
                                         <div class="field">
                                             <div class="two fields">
                                                 <div class="ui large field">
-                                                    <select class="ui fluid dropdown">
-                                                        <option disabled selected value="" >Nationality</option>                        
+                                                    <select class="ui fluid dropdown" v-model="nationality">
+                                                        <option  selected value="" >Nationality</option>                        
+                                                        <option   value="Ghana" >Ghana</option>                        
+                                                        <option   value="Nigeria" >Nigeria</option>                        
+                                                        <option   value="Togo" >Togo</option>                        
                                                     </select>
                                                 </div>
                         
                                                 <div class="ui large field">
-                                                    <input type="text" name="hometwon" placeholder="Hometown*">
+                                                    <input type="text" v-model="home_towm" name="hometwon" placeholder="Hometown*">
                                                 </div>
                                             </div> <br>
                                             <p>NB: All fields with * are required</p>
                                         </div>
-                                        <div class="ui button primary" style="float:right; border-radius:100px">Submit</div>
+                                        <div class="ui button primary" @click="addSubscriber()" style="float:right; border-radius:100px">Submit</div>
                                     </form>
                                 </div>
                     </div>
@@ -83,13 +88,75 @@
 <script>
   
 export default {
-  name: 'AgentAddSubcriber',
+  name: 'AgentAddSubscriber',
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
+      first_name: '',
+      last_name: '',
+      dob: '',
+      gender: '',
+      telephone: '',
+      email: '',
+      nationality: '',
+      home_towm: '',
+      subscribers: []
     }
     
   },
+
+  methods: {
+    addSubscriber(){
+      var subscriber = {
+        _id: new Date().toISOString(),
+        first_name: this.first_name,
+        last_name: this.last_name,
+        dob: this.dob,
+        gender: this.gender,
+        telephone: this.telephone,
+        email: this.email,
+        nationality: this.nationality,
+        home_towm: this.home_towm,
+        completed: false
+      };
+      var that = this;
+
+      db.put(subscriber, function callback(err, result) {
+
+        // that.getSubscribers();
+        
+        if (!err) {
+          console.log('Successfully updated a subscriber!');
+          
+          $.uiAlert({
+            textHead: 'New Subscriber Created Successfully!',
+            text: 'New Record created',
+            bgcolor: '#19c3aa',
+            textcolor: '#fff',
+            position: 'top-right', // top And bottom ||  left / center / right
+            icon: 'checkmark box',
+            time: 3
+            });
+        }
+      });
+    },
+    // getSubscribers() {
+    //   var that = this;
+
+    //   db.allDocs({include_docs: true, descending: true}, function(err, subscriber){
+    //         that.subscribers = subscriber.rows
+    //     });
+    // },
+    // deleteSubscriber(subscriber) {
+    //   db.remove(subscriber);
+    //   console.log("deleted Successfully!");
+    //   this.getSubscribers();
+    // }
+  },
+  mounted(){
+    // this.getSubscribers();
+      
+  }
  
 }
 </script>

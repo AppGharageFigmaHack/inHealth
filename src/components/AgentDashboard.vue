@@ -107,9 +107,29 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
+      subscribers: []
     }
     
   },
+
+  methods: {
+    getSubscribers() {
+      var that = this;
+
+      db.allDocs({include_docs: true, descending: true}, function(err, subscriber){
+            that.subscribers = subscriber.rows
+        });
+    },
+    // deleteSubscriber(subscriber) {
+    //   db.remove(subscriber);
+    //   console.log("deleted Successfully!");
+    //   this.getSubscribers();
+    // }
+  },
+  mounted(){
+    this.getSubscribers();
+      
+  }
  
 }
 </script>

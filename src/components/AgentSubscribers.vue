@@ -14,7 +14,7 @@
                                             </div>
                                             <div class="col"></div>
                                             <div class="col-3">
-                                                <button class="ui blue button" style="border-radius:100px">Add Subscriber</button>
+                                                <a href="/user/agent/add-subscriber" class="ui blue button" style="border-radius:100px">Add Subscriber</a>
                                             </div>
                         
                                         </div>
@@ -31,45 +31,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="three column wide">
-                                                    <td>John</td>
-                                                    <td>Approved</td>
-                                                    <td>None</td>
-                                                    <td>None</td>
+                                                <tr v-for="subscriber in subscribers" class="three column wide">
+                                                    <td>{{ subscriber.doc.first_name }}</td>
+                                                    <td>{{ subscriber.doc.last_name }}</td>
+                                                    <td>{{ subscriber.doc.gender }}</td>
+                                                    <td>{{ subscriber.doc.telephone }}</td>
                                                     <td>
                                                         <div class="row">
-                                                            <a href="" class="ui rounded basic green button">View</a>
-                                                            <a href=" " class="ui rounded basic yellow button">Edit</a>
-                                                            <a href=" " class="ui rounded basic red button ">Delete</a>
+                                                            <a class="ui rounded basic green button">View</a>
+                                                            <a class="ui rounded basic yellow button">Edit</a>
+                                                            <a @click="deleteSubscriber(subscriber.doc)" class="ui rounded basic red button ">Delete</a>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Jamie</td>
-                                                    <td>Approved</td>
-                                                    <td>Requires call</td>
-                                                    <td>None</td>
-                                                    <td>
-                                                        <div class="row">
-                                                            <a href="" class="ui rounded basic green button">View</a>
-                                                            <a href=" " class="ui rounded basic yellow button ">Edit</a>
-                                                            <a href=" " class="ui rounded basic red button ">Delete</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Jill</td>
-                                                    <td>Denied</td>
-                                                    <td>None</td>
-                                                    <td>None</td>
-                                                    <td>
-                                                        <div class="row">
-                                                            <a href="" class="ui rounded basic green button">View</a>
-                                                            <a href=" " class="ui rounded basic yellow button ">Edit</a>
-                                                            <a href=" " class="ui rounded basic red button ">Delete</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                
                                             </tbody>
                                         </table>
                                     </div>
@@ -89,9 +64,29 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
+      subscribers: []
     }
     
   },
+
+  methods: {
+    getSubscribers() {
+      var that = this;
+
+      db.allDocs({include_docs: true, descending: true}, function(err, subscriber){
+            that.subscribers = subscriber.rows
+        });
+    },
+    deleteSubscriber(subscriber) {
+      db.remove(subscriber);
+      console.log("deleted Successfully!");
+      this.getSubscribers();
+    }
+  },
+  mounted(){
+    this.getSubscribers();
+      
+  }
  
 }
 </script>

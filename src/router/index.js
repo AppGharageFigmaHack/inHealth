@@ -13,6 +13,11 @@ import AgentSubscriberDetails from '@/components/AgentSubscriberDetails'
 import AgentAddSubscriber from '@/components/AgentAddSubscriber'
 
 Vue.use(Router)
+
+const Subscriber = {   
+    props: ['id'],   
+    template: '<div>Subscriber {{ id }}</div>' 
+}
  
 export default new Router({
  mode: 'history',
@@ -68,9 +73,9 @@ export default new Router({
       component: AgentAddSubscriber
     },
     {
-      path: '/user/agent/subscriber',
-      name: 'AgentSubscriberDetails',
-      component: AgentSubscriberDetails
+      path: '/user/agent/subscriber/:id',
+      component: AgentSubscriberDetails,
+      props: true
     }
 
 
