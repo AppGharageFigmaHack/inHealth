@@ -2,81 +2,27 @@
   <div class="agentdashboard">
 
     
-    <div class="container">
-            <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding:10px">
-                            <div class="card">
-                                    <div class="ui" style="padding:30px">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h3>ALL AGENTS</h3>
-                                            </div>
-                                            <div class="col"></div>
-                                            <div class="col-3">
-                                                <button class="ui blue button" style="border-radius:100px">Add agent</button>
-                                            </div>
-                        
-                                        </div>
-                        
-                                        <table class="ui column very basic table padded">
-                                            <thead style="color:#828282;" class="padded">
-                                                <tr>
-                                                    <th style="padding-top: 10px;">First Name</th>
-                                                    <th style="padding-top: 10px;">Last Name</th>
-                                                    <th style="padding-top: 10px;" class="three column wide">Gender</th>
-                                                    <th style="padding-top: 10px;">Telephone</th>
-                                                    <th style="padding-top: 10px;">Action</th>
-                        
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="three column wide">
-                                                    <td>John</td>
-                                                    <td>Approved</td>
-                                                    <td>None</td>
-                                                    <td>None</td>
-                                                    <td>
-                                                        <div class="row">
-                                                            <a href="#" class="ui rounded basic green button">View</a>
-                                                            <a href="#" class="ui rounded basic yellow button">Edit</a>
-                                                            <a href="#" class="ui rounded basic red button ">Delete</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Jamie</td>
-                                                    <td>Approved</td>
-                                                    <td>Requires call</td>
-                                                    <td>None</td>
-                                                    <td>
-                                                        <div class="row">
-                                                            <a href="" class="ui rounded basic green button">View</a>
-                                                            <a href=" " class="ui rounded basic yellow button ">Edit</a>
-                                                            <a href=" " class="ui rounded basic red button ">Delete</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Jill</td>
-                                                    <td>Denied</td>
-                                                    <td>None</td>
-                                                    <td>None</td>
-                                                    <td>
-                                                        <div class="row">
-                                                            <a href="" class="ui rounded basic green button">View</a>
-                                                            <a href=" " class="ui rounded basic yellow button ">Edit</a>
-                                                            <a href=" " class="ui rounded basic red button ">Delete</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                    </div>
+   <div class="ui horizontal list" style="padding:20px 20px; color:#828282; display: flex; justify-content: center;">
+            <div class="buttons" style="padding: 10px; ">
+                    <button class="ui labeled icon primary big fluid button"  style="margin-bottom: 10px;">
+                        <i class="add icon"></i>
+                        Add Subscriber
+                    </button>
+                    <!-- <button class="ui labeled icon green big fluid button"  style="margin-bottom: 10px;">
+                        <i class="eye icon"></i>
+                        View Subscriber
+                    </button> -->
+                    <button class="ui labeled icon yellow big fluid button"  style="margin-bottom: 10px;">
+                        <i class="cog icon"></i>
+                        Settings
+                    </button>
+                    <button class="ui labeled icon red big fluid button"  style="margin-bottom: 10px;">
+                        <i class="lock icon"></i>
+                        Sign Out
+                    </button>
             </div>
-        
-    </div>
+        </div>
+
     
   </div>
 </template>

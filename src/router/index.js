@@ -11,6 +11,7 @@ import AgentDashboard from '@/components/AgentDashboard'
 import AgentSubscribers from '@/components/AgentSubscribers'
 import AgentSubscriberDetails from '@/components/AgentSubscriberDetails'
 import AgentAddSubscriber from '@/components/AgentAddSubscriber'
+import Claims from '@/components/Claims'
 
 Vue.use(Router)
  
@@ -26,6 +27,11 @@ export default new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
+    },
+    {
+      path: '/claims',
+      name: 'Claims',
+      component: Claims
     },
     {
       path: '/agents',
