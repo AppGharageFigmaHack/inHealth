@@ -38,8 +38,7 @@
                                                     <td>{{ subscriber.doc.telephone }}</td>
                                                     <td>
                                                         <div class="row">
-                                                            <a class="ui rounded basic green button">View</a>
-                                                            <a class="ui rounded basic yellow button">Edit</a>
+                                                            <a :href="'/user/agent/subscriber/' + subscriber.doc._id" class="ui rounded basic green button">View</a>
                                                             <a @click="deleteSubscriber(subscriber.doc)" class="ui rounded basic red button ">Delete</a>
                                                         </div>
                                                     </td>
@@ -75,6 +74,7 @@ export default {
 
       db.allDocs({include_docs: true, descending: true}, function(err, subscriber){
             that.subscribers = subscriber.rows
+            console.log(that.subscribers);
         });
     },
     deleteSubscriber(subscriber) {

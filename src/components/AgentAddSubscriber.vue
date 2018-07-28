@@ -108,7 +108,6 @@ export default {
   methods: {
     addSubscriber(){
       var subscriber = {
-        _id: new Date().toISOString(),
         first_name: this.first_name,
         last_name: this.last_name,
         dob: this.dob,
@@ -121,13 +120,13 @@ export default {
       };
       var that = this;
 
-      db.put(subscriber, function callback(err, result) {
+      db.post(subscriber, function callback(err, result) {
 
         // that.getSubscribers();
         
         if (!err) {
           console.log('Successfully updated a subscriber!');
-          
+
           $.uiAlert({
             textHead: 'New Subscriber Created Successfully!',
             text: 'New Record created',

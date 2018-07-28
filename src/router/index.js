@@ -86,8 +86,7 @@ export default new Router({
     },
     {
       path: '/user/agent/subscriber/:id',
-      component: AgentSubscriberDetails,
-      props: true
+      component: AgentSubscriberDetails
     }
 
 
