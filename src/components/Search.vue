@@ -16,9 +16,15 @@
                                             
                                             <div class="col-lg-5 col-sm-12">
                                                 <div class="ui form">
-                                                    <div class="field">
-                                                            <input type="text" placeholder="Name or Number"> 
-                                                    </div>
+                                                            
+                                                            <div class="ui fluid search">
+                                                              <div class="ui fluid input">
+                                                                <input class="prompt" type="text" name="name[]" placeholder="Enter Name or Phone *" required>
+                                                                <input type="hidden" id="hiddenInput" value="" name="actor_id[]" required>
+                                                                
+                                                              </div>
+                                                              <div class="fluid results"></div>
+                                                          </div>
                                                 </div>
                                                 
                                             </div>
@@ -103,9 +109,48 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
+      subscribers: []
     }
     
   },
+  methods: {
+    getSubscribers() {
+      var that = this;
+
+      db.allDocs({include_docs: true, descending: true}, function(err, subscriber){
+            that.subscribers = subscriber.rows
+            console.log(that.subscribers);
+        });
+    },
+  },
+  mounted () {
+
+    this.getSubscribers();
+
+    var subscriber = [
+            {"first_name": "Peter Perez", "telephone": '0249382736' },
+            {"first_name": "Micheal Sarpong", "telephone": '0549372634' },
+            {"first_name": "Baffour Roberta", "telephone": '0500493800' },
+    ];
+
+    $('.ui .search')
+        .search({
+          source: subscriber, 
+          searchFields: [
+            'first_name',
+            'telephone'
+          ],    
+          fields: {
+            title   : 'first_name',
+            description: 'telephone'
+          },
+          onSelect: function(result, response) {
+            //set number field to selected number
+            // $("#hiddenInput").val(result.id);
+          }
+        
+      }); 
+  }
  
 }
 </script>
