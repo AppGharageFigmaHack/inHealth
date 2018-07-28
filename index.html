@@ -46,20 +46,13 @@
         var remoteDB = new PouchDB('http://localhost:5984/myremotedb')
 
         db.sync(remoteDB).on('complete', function () {
-          // yay, we're in sync!
+          // We're in sync!
           console.log("Sync Successful!");
         }).on('error', function (err) {
-          // boo, we hit an error!
+          // We hit an error!
           console.log("Sync Unsuccessful!");
         });
 
-
-        // function sync() {
-        //   syncDom.setAttribute('data-sync-state', 'syncing');
-        //   var opts = {live: true};
-        //   db.replicate.to(remoteCouch, opts, syncError);
-        //   db.replicate.from(remoteCouch, opts, syncError);
-        // }
 
     </script>
     
