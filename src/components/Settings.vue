@@ -1,6 +1,7 @@
 <template>
   <div class="agentdashboard">
 
+
        <div class="container">
                 <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12" style="padding:10px;">
@@ -27,11 +28,11 @@
                                         </div>
                                         <div class="col-3"></div>
                                     </div>
-                                    
                                 </div>
                         </div>
                 </div>
         </div>
+        
     
   </div>
 </template>

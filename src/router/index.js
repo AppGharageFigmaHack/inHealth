@@ -12,6 +12,7 @@ import AgentSubscribers from '@/components/AgentSubscribers'
 import AgentSubscriberDetails from '@/components/AgentSubscriberDetails'
 import AgentAddSubscriber from '@/components/AgentAddSubscriber'
 import Claims from '@/components/Claims'
+import EditAgent from '@/components/EditAgent'
 
 Vue.use(Router)
  
@@ -42,6 +43,11 @@ export default new Router({
       path: '/subscribers',
       name: 'Subscribers',
       component: Subscribers
+    },
+    {
+      path: '/editAgent',
+      name: 'EditAgent',
+      component: EditAgent
     },
     {
       path: '/hospitals',
