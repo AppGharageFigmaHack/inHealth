@@ -3,13 +3,6 @@
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">inHealth</a>
-            <a class="btn btn-danger" href="#">Sign Up</a>
-
-        </div>
-    </nav>
 
     <!-- Masthead -->
     <header class="masthead text-white text-center">
@@ -125,6 +118,7 @@
                     </ul>
                     <p class="text-muted small mb-4 mb-lg-0">&copy; AppGharage 2018. All Rights Reserved.</p>
                 </div>
+                <!--
                 <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item mr-3">
@@ -144,6 +138,7 @@
                         </li>
                     </ul>
                 </div>
+                -->
             </div>
         </div>
     </footer>
