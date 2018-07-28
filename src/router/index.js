@@ -70,12 +70,12 @@ export default new Router({
       component: Settings
     },
     {
-      path: '/user/agent/dashboard',
+      path: '/admin/dashboard',
       name: 'AgentDashboard',
       component: AgentDashboard
     },
     {
-      path: '/user/agent/subscribers',
+      path: '/admin/subscribers',
       name: 'AgentSubscribers',
       component: AgentSubscribers
     },

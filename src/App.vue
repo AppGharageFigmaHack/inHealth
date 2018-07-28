@@ -23,10 +23,8 @@
 
     <ul class="nav nav-tabs justify-content-left" style="background:#fff;">
         <div class="ui horizontal list" style="padding:20px 20px; color:#828282">
-            <a href="" class="item">DASHBOARD</a>
-            <a href="" class="item">AGENT</a>
-            <a href="" class="item">HOSPITAL</a>
-            <a href="" class="item">SUBSCRIBER</a>
+            <a href="/admin/dashboard" class="item">DASHBOARD</a>
+            <a href="/admin/subscribers" class="item">SUBSCRIBER</a>
             <a href="" class="item">SEARCH</a>
             <a href="" class="item">SETTINGS</a>
 
