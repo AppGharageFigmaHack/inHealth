@@ -1,5 +1,6 @@
 <template>
   <div class="agentdashboard">
+    <Navigation/>
 
       <div class="container" style="padding:50px">
         <div class="row">
@@ -173,7 +174,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 h1, h2 {
   font-weight: normal;
 }

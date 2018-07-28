@@ -73,15 +73,20 @@
 
         var db = new PouchDB("subscribers");
 
-        var remoteDB = new PouchDB('http://localhost:5984/subscribers')
+        var remoteDB = new PouchDB('http://localhost:5984/subscribers');
 
-        db.sync(remoteDB).on('complete', function () {
-          // We're in sync!
-          console.log("Sync Successful!");
-        }).on('error', function (err) {
-          // We hit an error!
-          console.log("Sync Unsuccessful!");
-        });
+        
+
+        if (navigator.onLine) {
+            console.log("Internet Available!");
+            db.sync(remoteDB).on('complete', function () {
+              // We're in sync!
+              console.log("Sync Successful!");
+            }).on('error', function (err) {
+              // We hit an error!
+              console.log("Sync Unsuccessful!");
+            });
+        } 
 
 
     </script>

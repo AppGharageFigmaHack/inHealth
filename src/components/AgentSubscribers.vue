@@ -1,10 +1,27 @@
 <template>
   <div class="agentdashboard">
+    <Navigation/>
 
     
 
     <div class="container">
             <div class="row">
+                        
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="ui form">       
+                            <div class="ui fluid search">
+                              <div class="ui fluid input">
+                                <input class="prompt" type="text" name="name[]" placeholder="Enter Name or Phone *" required>
+                                <input type="hidden" id="hiddenInput" value="" name="actor_id[]" required>
+                                
+                              </div>
+                              <div class="fluid results"></div>
+                          </div>
+                        </div>
+                        
+                    </div>
+    
+
                     <div class="col-sm-12 col-md-12 col-lg-12" style="padding:10px">
                             <div class="card">
                                     <div class="ui" style="padding:30px">
@@ -61,7 +78,7 @@ import Navigation from '@/components/Navigation'
 
 export default {
   name: 'AgentSubscribers',
-  scomponents: {
+  components: {
       Navigation
   },
   data () {
@@ -77,8 +94,9 @@ export default {
       var that = this;
 
       db.allDocs({include_docs: true, descending: true}, function(err, subscriber){
-            that.subscribers = subscriber.rows
-            console.log(that.subscribers);
+            that.subscribers = subscriber.rows;
+
+            return subscriber.rows;
         });
     },
     deleteSubscriber(subscriber) {
@@ -88,8 +106,42 @@ export default {
     }
   },
   mounted(){
+
     this.getSubscribers();
-      
+
+    db.allDocs({include_docs: true, descending: true}, function(err, subscriber){
+        var subs = subscriber.rows;
+        var subscribers = [];
+
+        subs.forEach(function(el){
+            subscribers.push(el.doc);
+        })
+
+        $('.ui .search')
+        .search({
+          source: subscribers, 
+          searchFields: [
+            'first_name',
+            'last_name',
+            'telephone'
+          ],    
+          fields: {
+            title   : 'last_name'  ,
+            description: 'first_name'
+          },
+          onSelect: function(result, response) {
+            //set number field to selected number
+
+            var id = result._id;
+            console.log(id);
+
+            window.location.href = "/user/agent/subscriber/" + id;
+
+          }
+        
+      });
+    });
+
   }
  
 }
