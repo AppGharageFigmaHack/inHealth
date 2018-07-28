@@ -1,7 +1,6 @@
 <template>
   <div class="agentdashboard">
-
-    
+    <Navigation/>
 
     <div class="container">
         <div class="row">
@@ -101,9 +100,13 @@
 </template>
 
 <script>
-  
+import Navigation from '@/components/Navigation'
+
 export default {
   name: 'AgentDashboard',
+  components: {
+      Navigation
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',

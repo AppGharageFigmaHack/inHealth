@@ -57,9 +57,13 @@
 </template>
 
 <script>
-  
+import Navigation from '@/components/Navigation'
+
 export default {
   name: 'AgentSubscribers',
+  scomponents: {
+      Navigation
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',

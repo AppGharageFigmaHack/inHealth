@@ -2,7 +2,7 @@
   <div class="agentdashboard">
 
 
-       <div class="container">
+         <div class="container">
                 <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12" style="padding:10px;">
                                 <div class="card">
@@ -32,15 +32,19 @@
                         </div>
                 </div>
         </div>
-        
+
     
   </div>
 </template>
 
 <script>
-  
+import Navigation from '@/components/Navigation'
+
 export default {
   name: 'Settings',
+  components: {
+      Navigation
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA',
