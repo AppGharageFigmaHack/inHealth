@@ -12,29 +12,14 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <span class="navbar-text" style="color:#fff;">
-                    Admin Name <i class="angle down icon"></i>         
+                    Test <i class="angle down icon"></i>         
                     </span>
         </div>
       </div>
     </nav>
-    <div class="" style=" background:#fff;">
 
-    <div class="container" style="margin-top: 0; padding: 0; background:#fff;">
+    <router-view></router-view>
 
-    <ul class="nav nav-tabs justify-content-left" style="background:#fff;">
-        <div class="ui horizontal list" style="padding:20px 20px; color:#828282">
-            <a href="/admin/dashboard" class="item">DASHBOARD</a>
-            <a href="/admin/subscribers" class="item">SUBSCRIBER</a>
-            <a href="" class="item">SEARCH</a>
-            <a href="" class="item">SETTINGS</a>
-
-        </div>
-    </ul>
-  </div>
-</div>
-    <main>
-      <router-view></router-view>
-    </main>
   </div>
 </template>
 

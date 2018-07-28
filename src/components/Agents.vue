@@ -4,22 +4,28 @@
     
    <div class="ui horizontal list" style="padding:20px 20px; color:#828282; display: flex; justify-content: center;">
             <div class="buttons" style="padding: 10px; ">
-                    <button class="ui labeled icon primary big fluid button"  style="margin-bottom: 10px;">
+            <a href="/user/agent/add-subscriber">
+                    <button class="ui labeled icon green big fluid button"  style="margin-bottom: 10px;">
                         <i class="add icon"></i>
                         Add Subscriber
                     </button>
+                    </a>
                     <!-- <button class="ui labeled icon green big fluid button"  style="margin-bottom: 10px;">
                         <i class="eye icon"></i>
                         View Subscriber
                     </button> -->
-                    <button class="ui labeled icon yellow big fluid button"  style="margin-bottom: 10px;">
+                    <a href="/settings">
+                    <button class="ui labeled icon blue big fluid button"  style="margin-bottom: 10px;">
                         <i class="cog icon"></i>
                         Settings
                     </button>
+                    </a>
+                    <a href="/settings">
                     <button class="ui labeled icon red big fluid button"  style="margin-bottom: 10px;">
                         <i class="lock icon"></i>
                         Sign Out
                     </button>
+                    </a>
             </div>
         </div>
 
